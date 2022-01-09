@@ -1,6 +1,17 @@
-const customExpress = require('./config/customExpress')
+const customExpress = require("./config/customExpress");
+const postPool = require("./infra/conexao");
+const Tabelas = require("./infra/tabelas");
 
-const app = customExpress()
+postPool.connect((erro) => {
+  if (erro) {
+    console.log(erro);
+  } else {
+    console.log("Connect to database");
 
+    Tabelas.init(postPool);
 
-app.listen(3000, () => console.log('Server is running on port 3000'))
+    const app = customExpress();
+
+    app.listen(3000, () => console.log("Server is running on port 3000"));
+  }
+});

@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "consign": "^0.1.6",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "pg": "^8.7.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
